@@ -10,9 +10,8 @@ import { Response } from "express";
 @Service()
 class AuthController {
   @Get("/google")
-  setScope() {
-    return passport.authenticate("google");
-  }
+  @UseBefore(passport.authenticate("google", { scope: ["profile", "email"] }))
+  async googleAuth() {}
 
   @UseBefore(
     passport.authenticate("google", { failureRedirect: "/", session: false })
