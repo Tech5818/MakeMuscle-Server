@@ -18,15 +18,16 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
-app.get("/", (req, res) => {
-  res.send(`<a href="auth/google">Google Login</a>`);
-});
+// app.get("/", (req, res) => {
+//   res.send(`<a href="auth/google">Google Login</a>`);
+// });
 
-// import * as mongoDB from "./src/config/db.ts";
+import * as mongoDB from "./src/config/db.ts";
 
-// mongoDB.mongo_user();
-// mongoDB.mongo_interested();
-// mongoDB.mongo_project();
+mongoDB.mongo_user();
+mongoDB.mongo_attendance();
+mongoDB.mongo_eaquipment();
+mongoDB.mongo_stat();
 
 import passport from "./src/auth/passportConfig.ts";
 app.use(passport.initialize());

@@ -19,9 +19,7 @@ class AuthController {
   @Get("/google/callback")
   setCallback(@Req() req: passportUser, @Res() res: Response) {
     const user = req.user as oAuthUser;
-    console.log(user);
-    const token = JwtUtil.generateToken(user);
-    return res.status(200).json({ token });
+    return res.status(200).json({ data: user });
   }
 }
 
