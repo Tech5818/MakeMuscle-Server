@@ -12,4 +12,6 @@ const userSchema: Schema<IUser> = new Schema({
   stat: { type: Schema.Types.ObjectId, required: true },
 });
 
-export const UserRepository = user_connection.model<IUser>("User", userSchema);
+const UserRepository = user_connection.model<IUser>("User", userSchema);
+
+export default UserRepository;
