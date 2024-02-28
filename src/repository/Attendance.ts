@@ -7,7 +7,9 @@ const attendanceSchema: Schema<IAttendance> = new Schema({
   time: { type: Date, default: Date.now() },
 });
 
-export const AttendanceRepository = attendance_connection.model<IAttendance>(
+const AttendanceRepository = attendance_connection.model<IAttendance>(
   "Attendance",
   attendanceSchema
 );
+
+export default AttendanceRepository;

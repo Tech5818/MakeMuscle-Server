@@ -8,7 +8,9 @@ const equipmentSchema: Schema<IEquipment> = new Schema({
   view: { type: Number, default: 0 },
 });
 
-export const EquipmentRepository = equipment_connection.model<IEquipment>(
+const EquipmentRepository = equipment_connection.model<IEquipment>(
   "Equipment",
   equipmentSchema
 );
+
+export default EquipmentRepository;

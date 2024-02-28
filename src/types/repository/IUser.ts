@@ -9,5 +9,5 @@ export interface IUser extends Document {
   img: string;
   isEnter: boolean;
   attendance?: IAttendance["_id"][];
-  stat: IStat["_id"];
+  stat?: IStat["_id"];
 }

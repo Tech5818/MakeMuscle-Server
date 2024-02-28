@@ -38,8 +38,19 @@ import Container from "typedi";
 
 import AuthController from "./src/controller/AuthController.ts";
 
+import UserRepository from "./src/repository/User.ts";
+import StatRepository from "./src/repository/Stat.ts";
+import UserService from "./src/service/UserService.ts";
+import UserController from "./src/controller/UserController.ts";
+
+const userService = new UserService(UserRepository, StatRepository);
+
+Container.set(UserService, userService);
+
+useContainer(Container);
+
 useExpressServer(app, {
-  controllers: [AuthController],
+  controllers: [AuthController, UserController],
 });
 
 export default app;
