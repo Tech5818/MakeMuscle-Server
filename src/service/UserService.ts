@@ -25,6 +25,19 @@ class UserService {
       throw error;
     }
   }
+
+  async readUser(email: string) {
+    try {
+      const user = await this.userRepository.findOne({ email });
+
+      if (!user) return false;
+
+      return user;
+    } catch (error) {
+      console.error(error);
+      throw error;
+    }
+  }
 }
 
 export default UserService;
